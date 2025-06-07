@@ -67,7 +67,7 @@ function Navbar(){
         <nav>
         <div style={NavbarDiv}>
             <div style={LogoDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                <Link to="/index"></Link>
+                <Link to=""></Link>
             </div>
             {headings.map((heading) => <NavElement key={heading.id} heading={heading}/>)}
         </div>
