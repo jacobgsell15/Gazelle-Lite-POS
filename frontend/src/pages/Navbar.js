@@ -52,6 +52,7 @@ function Navbar(){
         height:"50px",
         width:"100px",
         backgroundColor: isHovering ? 'rgba(9,9,93,.1)' : 'rgba(9,9,93,.0)',
+        backgroundImage: "url('./Logo1.png')",
         margin:"auto",
         padding:"none",
         textAlign:"center",
