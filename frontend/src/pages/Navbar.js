@@ -56,7 +56,7 @@ function Navbar(){
         backgroundPosition: "center",
         backgroundSize: "100% 100%",
         margin:"auto",
-        padding:"none",
+        padding:"5px",
         textAlign:"center",
         verticalAlign:"center",
         borderRadius: isHovering ? '10px' : 'none',
@@ -67,7 +67,7 @@ function Navbar(){
         <nav>
         <div style={NavbarDiv}>
             <div style={LogoDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-                <Link to="/"></Link>
+                <Link to="/app"></Link>
             </div>
             {headings.map((heading) => <NavElement key={heading.id} heading={heading}/>)}
         </div>
