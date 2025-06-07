@@ -23,4 +23,4 @@ class ItemSerializer(serializers.ModelSerializer):
 class AddItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = AddItem
-        fields = ('id','order','item','description','recipe','unit_price','qty','price','guest')
+        fields = ('id','order','item','description','modification','unit_price','qty','price','guest')

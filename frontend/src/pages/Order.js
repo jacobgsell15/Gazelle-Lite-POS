@@ -115,13 +115,13 @@ const DeleteButton = {
     <>        
         <div style={EditOrderRowDiv}>
         <div style={EditOrderRowLDiv}>
-            <b style={EditOrderRowH}>{props.product.description}</b>
+            <b style={EditOrderRowH}>{addItem.description}</b>
         <br />
             <label style={EditOrderRowH}>
             <input
                 type="text"
                 name="modifications"
-                value={inputs.modifications || "Add Modification"}
+                value={inputs.modification || addItem.modification || "Add Modification"}
                 style={EditOrderRowInput1}
                 onChange={handleChange}
             />
@@ -149,7 +149,7 @@ const DeleteButton = {
             </label>
         </div>
         <div style={EditOrderRowM2Div}>
-           <b style={EditOrderRowH}>${addItem.price}</b>
+           <b style={EditOrderRowH}>${addItem.unit_price * addItem.qty}</b>
         </div>
         <div style={EditOrderRowRDiv}>
             <button style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} onClick={(event) => updater(event)}>Update</button>
@@ -179,13 +179,14 @@ function EditOrder(props){
 
     const handleSelect = (event,order) => {
         setSelectedValue(event.target.value);
-        const item = {"order":order.id,"item":event.target.value,"qty":1,"price":1.00,"guest":order.guests};
-        console.log(item);
-        console.log(event);
-        console.log(selectedValue);
         axios
-        .post("/api/additems/", item)
-        .then((res) => setReload(true));
+        .get(`/api/additems/${event.target.value}/`)
+        .then((res) => {
+            const item = {"order":order.id,"item":res.data.id,"description":res.data.description,"unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
+            axios
+                .post("/api/additems/", item)
+                .then((res) => setReload(true));
+        })
         setSelectedValue('')
         return;
     };

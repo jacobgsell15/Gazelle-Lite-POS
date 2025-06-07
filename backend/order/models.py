@@ -42,7 +42,7 @@ class AddItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     description = models.CharField(max_length=120,default="")
-    recipe = models.TextField()
+    modification = models.TextField()
     unit_price = models.FloatField()
     qty = models.IntegerField()
     price = models.FloatField()

@@ -14,7 +14,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ('id','description','recipe','cost','price')
 
 class AddItemAdmin(admin.ModelAdmin):
-    list_display = ('id','order','item','description','recipe','unit_price','qty','price','guest')
+    list_display = ('id','order','item','description','modification','unit_price','qty','price','guest')
 
 
 # Register your models here.
