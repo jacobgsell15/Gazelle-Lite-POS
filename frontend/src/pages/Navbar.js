@@ -51,10 +51,10 @@ function Navbar(){
     const LogoDiv = {
         height:"50px",
         width:"100px",
-        backgroundColor: isHovering ? 'rgba(9,9,93,.1)' : 'rgba(9,9,93,.0)',
+        border: isHovering ? '1px solid rgba(9,9,93,.1)' : '1px solid rgba(9,9,93,.0)',
         backgroundImage: "url('./Logo1.png')",
         backgroundPosition: "center",
-        backgroundSize: "cover",
+        backgroundSize: "contain",
         margin:"auto",
         padding:"none",
         textAlign:"center",
