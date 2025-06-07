@@ -39,7 +39,7 @@ function Navbar(){
   ];
 
     const NavbarDiv = {
-        height:"50px",
+        height:"55px",
         width:"100%",
         margin:"0px",
         padding:"0 0 0 0",
@@ -50,7 +50,7 @@ function Navbar(){
     }
     const LogoDiv = {
         height:"50px",
-        width:"100px",
+        width:"75px",
         border: isHovering ? '1px solid rgba(9,9,93,.1)' : '1px solid rgba(9,9,93,.0)',
         backgroundImage: "url('./Logo1.png')",
         backgroundPosition: "center",
