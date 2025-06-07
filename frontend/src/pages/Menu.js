@@ -13,10 +13,10 @@ function MenuListRow(props){
             if (currItem.id === item.id && currItem.id != null){
                 axios
                     .put(`/api/items/${item.id}/`, currItem)
-                    .then((res) => props.signal(event))
+                    .then((res) => window.location.reload())
             }
             else{
-                const uitem = {"id":"","description":currItem.description,"recipe":currItem.recipe,"price":currItem.price};
+                const uitem = {"id":"","description":currItem.description,"recipe":currItem.recipe,"cost":currItem.cost,"price":currItem.price};
                 axios
                     .post('/api/items/',uitem)
                     .then((res) => window.location.reload())
@@ -26,7 +26,7 @@ function MenuListRow(props){
         const handleDelete = (event, item) => {
             axios
                 .delete(`/api/items/${item.id}/`)
-                .then((res) => props.signal(event))
+                .then((res) => window.location.reload())
         }
 
     const handleSelectedChange = (event) => {
@@ -148,7 +148,7 @@ const AddButton = {
                     type="text"
                     name="cost"
                     style={MenuListRowInput2}
-                    value={inputs.cost || ""}
+                    value={inputs.cost || props.item.cost || ""}
                     onChange={handleChange}
                 />
             </td>
@@ -198,20 +198,6 @@ function Menu(){
     }, [reload]);
 
 
-const menu = [
-    {id:"0",title:"Classic Burger",recipe:"",available:false,cost:8.19,price:12.99},
-    {id:"1",title:"American Burger"},
-    {id:"2",title:"Cowboy Burger"},
-    {id:"3",title:"Cheese Pizza"},
-    {id:"4",title:"Chef Salad"},
-    {id:"5",title:"Wedge Salad"},
-    {id:"6",title:"Cobb Salad"},
-    {id:"7",title:"Cheese Pizza"},
-    {id:"8",title:"Mea Lovers Pizza"},
-    {id:"9",title:"Soft Drink"},
-    {id:"10",title:"Water"},
-    {id:"11",title:"Standard Renters Insurance"},
-]
 const HouseDiv = {
     backgroundImage:"linear-gradient( rgba(9,9,93,.7), rgba(9,9,93,.2), rgba(9,9,93,.7))",
     padding:"30px 5% 30px 5%",
