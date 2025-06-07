@@ -33,13 +33,9 @@ function NavElement(props){
 function Navbar(){    
     const [isHovering, setIsHovering] = useState(false);
     const headings = [
-        
-    {id:0, title:'Setup', link: '/setup'},
-    {id:1, title:'Scheduling',link: '/scheduling'},
-    {id:2, title:'Analytics', link: '/analytics'},
-    {id:3, title:'Employees', link: '/employees'},
-    {id:4, title:'Menu', link: '/menu'},
-    {id:5, title:'Orders', link: '/order'},
+    {id:0, title:'Reports', link: '/reports'},
+    {id:1, title:'Menu', link: '/menu'},
+    {id:2, title:'Orders', link: '/order'}
   ];
 
     const NavbarDiv = {
