@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { Outlet, Link } from "react-router-dom";
 import Order from './Order';
 
 function Floater(props) {
@@ -38,7 +39,7 @@ function Floater(props) {
   return (
     <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} style={FloaterDiv}>
       <div style={FloaterH}>
-        <b>{props.floater.title}</b>
+        <Link to={props.floater.link}>{props.floater.title}</Link>
       </div>
       <br />
       <div style={FloaterP}>
@@ -62,11 +63,8 @@ function App() {
   }
   const floaters = [
     {id:0, title:'Orders', description: 'Create New Orders and View Existing Ones', link: '/order'},
-    {id:1, title:'Menu', description: 'View and Add to the Menu, as well as Update Pricing', link: '/order'},
-    {id:2, title:'Employees', description: 'Clock Employees In and Out, as well as View Timesheets', link: '/order'},
-    {id:3, title:'Analytics', description: 'Track Trends, Employee Productivity, and Download Reports', link: '/order'},
-    {id:4, title:'Scheduling', description: 'Schedule Employees, Delivery’s, and Events (Reservations, Parties, etc.)', link: '/order'},
-    {id:5, title:'Setup', description: 'Add and Remove Employees, as well as Customize Wages', link: '/order'}
+    {id:1, title:'Menu', description: 'View and Add to the Menu, as well as Update Pricing', link: '/menu'},
+    {id:2, title:'Reports', description: 'Track Trends, and Download Reports', link: '/order'}
   ];
   return (
     <div style={HouseDiv}>
