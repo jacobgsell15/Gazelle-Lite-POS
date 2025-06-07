@@ -54,7 +54,7 @@ function Navbar(){
         border: isHovering ? '1px solid rgba(9,9,93,.1)' : '1px solid rgba(9,9,93,.0)',
         backgroundImage: "url('./Logo1.png')",
         backgroundPosition: "center",
-        backgroundSize: "contain",
+        backgroundSize: "100% 100%",
         margin:"auto",
         padding:"none",
         textAlign:"center",
