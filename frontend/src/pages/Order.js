@@ -220,19 +220,19 @@ function EditOrder(props){
     }, [reload]);
     console.log(props.workorder);
     const handleUpdate = (event, order) => {
-        if (updatedOrder.id === order.id && updatedOrder.id != null){            
-        alert(event)
+        if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
                 .put(`/api/orders/${order.id}/`, updatedOrder)
                 .then((res) => setReload(true))
-        }
-        
+        }        
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
             console.log(uorder)            
             axios
                 .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => setLocationHandler(res))            
+                .then((res) => setLocationHandler(res)) 
+                        
+            alert(event)           
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
