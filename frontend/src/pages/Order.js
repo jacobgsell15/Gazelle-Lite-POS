@@ -226,22 +226,14 @@ function EditOrder(props){
                 .then((res) => setReload(true))
         }        
         else{
-            const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
-            axios
-                .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => setLocationHandler(res))
-                .catch ((eror) => {
-                    console.log("Error fetching data:", eror)
-                    alert(eror)
-                })
-                        
-            const new_guests = locationHandler.guests + updatedOrder.guests;
-            const new_avail = locationHandler.avail - 1;
+            const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}           
+            const new_guests = props.location.guests + updatedOrder.guests;
+            const new_avail = props.location.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
                 .put(`/api/locations/${props.locations.id}/`,locationHandler)
-                .then((res) => setReload(true))
+                .then((res) => console.log(res))
                 .catch ((eror) => {
                     console.log("Error fetching data:", eror)
                     alert(eror)
