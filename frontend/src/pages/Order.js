@@ -395,15 +395,6 @@ const DeleteButton = {
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
                     </>
                 )}
-           
-           
-        <div style={EditOrderRowRDiv}>
-            <button  onClick={(event) => updater(event)}>Update</button>
-        <br />
-            <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)} onClick={(event) => deleter(event)}>Delete</button>
-        </div>
-           
-           
             </form>
         </div>
     )
