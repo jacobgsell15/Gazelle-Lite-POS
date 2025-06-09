@@ -227,8 +227,8 @@ function EditOrder(props){
         }        
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}           
-            const new_guests = props.location.guests + updatedOrder.guests;
-            const new_avail = props.location.avail - 1;
+            const new_guests = locationHandler.guests + updatedOrder.guests;
+            const new_avail = locationHandler.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
             setLocationHandler(values => ({...values,["avail"]:new_avail})); 
             console.log(locationHandler);
