@@ -385,12 +385,12 @@ const DeleteButton = {
                     </select>
                 </label>
                 </div>
-                {!(props.workorder === null) && (
+                {!(props.workorder.id === null) && (
                     <>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
                 )}
-                {(props.workorder === null) && (
+                {(props.workorder.id === null) && (
                     <>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
                     </>
