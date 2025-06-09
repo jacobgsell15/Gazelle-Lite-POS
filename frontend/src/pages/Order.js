@@ -226,6 +226,7 @@ function EditOrder(props){
                 .then((res) => setReload(true))
         }        
         else{
+            setLocationHandler(props.location);
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}           
             const new_guests = props.location.guests + updatedOrder.guests;
             const new_avail = props.location.avail - 1;
