@@ -223,7 +223,7 @@ function EditOrder(props){
         if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
                 .put(`/api/orders/${order.id}/`, updatedOrder)
-                .then((res) => setReload(true))
+                .then((res) => alert('red alert'))
         }
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
