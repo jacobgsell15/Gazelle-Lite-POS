@@ -340,7 +340,7 @@ const DeleteButton = {
     padding:"0px",
     fontSize:"12px"
 }
-
+    console.log(props.workorder);
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
