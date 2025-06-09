@@ -230,7 +230,7 @@ function EditOrder(props){
             console.log(uorder)            
             axios
                 .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => setLocationHandler(res))
+                .then((res) => alert('red alert'))
             
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
