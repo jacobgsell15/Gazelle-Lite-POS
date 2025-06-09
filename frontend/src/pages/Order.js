@@ -223,27 +223,26 @@ function EditOrder(props){
         if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
                 .put(`/api/orders/${order.id}/`, updatedOrder)
-                .then((res) => alert('red alert'))
+                .then((res) => setReload(true))
         }
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
             console.log(uorder)            
             axios
                 .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => alert('red alert'))
+                .then((res) => setLocationHandler(res))
             
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
-                .post('/api/locations/',locationHandler)
-                .then((res) => alert('red'))
+                .put(`/api/locations/${props.locations.id}/`,locationHandler)
+                .then((res) => setReload(true))
             
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
-            alert('pause');
         }
     }
 
