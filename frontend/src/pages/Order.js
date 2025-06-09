@@ -218,7 +218,7 @@ function EditOrder(props){
         setReload(false);      
         fetchData();
     }, [reload]);
-    console.log(props.workorder);
+    
     const handleUpdate = (event, order) => {
         if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
@@ -233,6 +233,7 @@ function EditOrder(props){
             setLocationHandler(values => ({...values,["avail"]:new_avail})); 
             console.log(locationHandler);
             console.log(props.location);
+            console.log(new_guests);
             alert('red')              
             axios
                 .put(`/api/locations/${props.location.id}/`,locationHandler)
