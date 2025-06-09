@@ -220,6 +220,7 @@ function EditOrder(props){
     }, [reload]);
     console.log(props.workorder);
     const handleUpdate = (event, order) => {
+        alert(event)
         if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
                 .put(`/api/orders/${order.id}/`, updatedOrder)
