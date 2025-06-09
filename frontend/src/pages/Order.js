@@ -238,7 +238,7 @@ function EditOrder(props){
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
                 .post('/api/locations/',locationHandler)
-                .then((res) => setReload(true))
+                .then((res) => alert('red'))
             
             axios
                 .post('/api/orders/',uorder)
