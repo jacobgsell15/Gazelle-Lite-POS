@@ -230,16 +230,14 @@ function EditOrder(props){
             console.log(uorder)            
             axios
                 .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => setLocationHandler(res))
-            
+                .then((res) => setLocationHandler(res))            
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
                 .put(`/api/locations/${props.locations.id}/`,locationHandler)
-                .then((res) => setReload(true))
-            
+                .then((res) => setReload(true))            
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
@@ -418,7 +416,7 @@ const DeleteButton = {
                 )}
                 {(props.blanks) && (
                     <>
-                    <input type="submit" style={SubmitButton2} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
+                    <input type="submit" style={SubmitButton2} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />                    
                     </>
                 )}
             </form>
