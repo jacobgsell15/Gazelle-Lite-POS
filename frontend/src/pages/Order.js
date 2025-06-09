@@ -168,7 +168,9 @@ function EditOrder(props){
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
     const [items, setItems] = useState([]);
-    const [reload, setReload] = useState(false)
+    const [reload, setReload] = useState(false);
+    const [updateHover,setUpdateHover] = useState(false);
+    const [deleteHover,setDeleteHover] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -312,6 +314,32 @@ const EditOrderRowHouseDiv = {
     overflowY:"scroll",
     maxHeight:"250px"
 }
+const SubmitButton = {
+    width:"45px",
+    height:"20px",
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
+}
+const DeleteButton = {
+    width:"45px",
+    height:"20px",
+    backgroundColor: deleteHover ? "rgba(255,26,0,1)" : "rgba(255,26,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
+}
 
     return(
         <div style={EditOrderDiv}>
@@ -357,7 +385,25 @@ const EditOrderRowHouseDiv = {
                     </select>
                 </label>
                 </div>
-                <input type="submit" /><button onClick={(event) => handleDelete(event,props.workorder)}>Delete</button>
+                {!(props.workorder === null) && (
+                    <>
+                    <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
+                    </>
+                )}
+                {(props.workorder === null) && (
+                    <>
+                    <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
+                    </>
+                )}
+           
+           
+        <div style={EditOrderRowRDiv}>
+            <button  onClick={(event) => updater(event)}>Update</button>
+        <br />
+            <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)} onClick={(event) => deleter(event)}>Delete</button>
+        </div>
+           
+           
             </form>
         </div>
     )
