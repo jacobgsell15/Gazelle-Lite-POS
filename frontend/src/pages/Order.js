@@ -165,6 +165,7 @@ const DeleteButton = {
 function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [updatedOrder,setUpdatedOrder] = useState(props.workorder);
+    const [locationHandler,setLocationHandler] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
     const [items, setItems] = useState([]);
@@ -226,7 +227,19 @@ function EditOrder(props){
         }
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
-            console.log(uorder)
+            console.log(uorder)            
+            axios
+                .get(`/api/locations/${props.locations.id}/`)
+                .then((res) => setLocationHandler(res))
+            
+            const new_guests = locationHandler.guests + updatedOrder.guests;
+            const new_avail = locationHandler.avail - 1;
+            setLocationHandler(values => ({...values,["guests"]:new_guests}));            
+            setLocationHandler(values => ({...values,["avail"]:new_avail}));               
+            axios
+                .post('/api/locations/',locationHandler)
+                .then((res) => setReload(true))
+            
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
