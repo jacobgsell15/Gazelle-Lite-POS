@@ -232,7 +232,7 @@ function EditOrder(props){
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
-                .put(`/api/locations/${props.locations.id}/`,locationHandler)
+                .put(`/api/locations/${props.location.id}/`,locationHandler)
                 .then((res) => console.log(res))
                 .catch ((eror) => {
                     console.log("Error fetching data:", eror)
