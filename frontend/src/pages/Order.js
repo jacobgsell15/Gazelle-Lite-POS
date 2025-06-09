@@ -231,7 +231,7 @@ function EditOrder(props){
                 .get(`/api/locations/${props.locations.id}/`)
                 .then((res) => setLocationHandler(res))
                 .catch ((eror) => {
-                    console.error("Error fetching data:", eror)
+                    console.log("Error fetching data:", eror)
                     alert(eror)
                 })
                         
