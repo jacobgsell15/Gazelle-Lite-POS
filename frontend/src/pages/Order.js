@@ -241,10 +241,18 @@ function EditOrder(props){
             setLocationHandler(values => ({...values,["avail"]:new_avail}));               
             axios
                 .put(`/api/locations/${props.locations.id}/`,locationHandler)
-                .then((res) => setReload(true))            
+                .then((res) => setReload(true))
+                .catch ((eror) => {
+                    console.log("Error fetching data:", eror)
+                    alert(eror)
+                })            
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
+                .catch ((eror) => {
+                    console.log("Error fetching data:", eror)
+                    alert(eror)
+                })
         }
     }
 
