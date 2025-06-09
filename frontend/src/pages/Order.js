@@ -230,7 +230,8 @@ function EditOrder(props){
             const new_guests = props.location.guests + updatedOrder.guests;
             const new_avail = props.location.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
-            setLocationHandler(values => ({...values,["avail"]:new_avail}));               
+            setLocationHandler(values => ({...values,["avail"]:new_avail})); 
+            alert('red')              
             axios
                 .put(`/api/locations/${props.location.id}/`,locationHandler)
                 .then((res) => console.log(res))
