@@ -243,6 +243,7 @@ function EditOrder(props){
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
+            alert('pause');
         }
     }
 
