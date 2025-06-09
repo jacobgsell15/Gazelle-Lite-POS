@@ -227,11 +227,13 @@ function EditOrder(props){
         }        
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
-            alert(event)          
-
             axios
                 .get(`/api/locations/${props.locations.id}/`)
-                .then((res) => setLocationHandler(res)) 
+                .then((res) => setLocationHandler(res))
+                .catch ((eror) => {
+                    console.error("Error fetching data:", eror)
+                    alert(eror)
+                })
                         
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
