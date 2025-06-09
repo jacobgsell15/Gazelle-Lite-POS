@@ -227,12 +227,12 @@ function EditOrder(props){
         }        
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
-            console.log(uorder)            
+            alert(event)          
+
             axios
                 .get(`/api/locations/${props.locations.id}/`)
                 .then((res) => setLocationHandler(res)) 
                         
-            alert(event)           
             const new_guests = locationHandler.guests + updatedOrder.guests;
             const new_avail = locationHandler.avail - 1;
             setLocationHandler(values => ({...values,["guests"]:new_guests}));            
