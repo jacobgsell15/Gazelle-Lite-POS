@@ -384,7 +384,7 @@ const DeleteButton = {
                     <input 
                         type="text" 
                         name="table" 
-                        value={inputs.table || props.workorder.table || ""} 
+                        value={inputs.table || updatedOrder.table || ""} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -393,7 +393,7 @@ const DeleteButton = {
                     <input 
                         type="number" 
                         name="guests" 
-                        value={inputs.guests || props.workorder.guests || 0} 
+                        value={inputs.guests || updatedOrder.guests || 0} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
