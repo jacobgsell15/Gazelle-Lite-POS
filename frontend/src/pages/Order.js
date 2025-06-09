@@ -327,6 +327,19 @@ const SubmitButton = {
     padding:"0px",
     fontSize:"12px"
 }
+const SubmitButton2 = {
+    width:"90px",
+    height:"20px",
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
+}
 const DeleteButton = {
     width:"45px",
     height:"20px",
@@ -374,6 +387,8 @@ const DeleteButton = {
                     </>
                 ))}
                 </div>
+                {!(props.blanks) && (
+                    <>
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
@@ -385,14 +400,12 @@ const DeleteButton = {
                     </select>
                 </label>
                 </div>
-                {!(props.blanks) && (
-                    <>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
                 )}
                 {(props.blanks) && (
                     <>
-                    <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
+                    <input type="submit" style={SubmitButton2} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
                     </>
                 )}
             </form>
