@@ -165,7 +165,7 @@ const DeleteButton = {
 function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [updatedOrder,setUpdatedOrder] = useState(props.workorder);
-    const [locationHandler,setLocationHandler] = useState([]);
+    const [locationHandler,setLocationHandler] = useState(props.location);
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
     const [items, setItems] = useState([]);
@@ -226,7 +226,6 @@ function EditOrder(props){
                 .then((res) => setReload(true))
         }        
         else{
-            setLocationHandler(props.location);
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}           
             const new_guests = props.location.guests + updatedOrder.guests;
             const new_avail = props.location.avail - 1;
