@@ -385,12 +385,12 @@ const DeleteButton = {
                     </select>
                 </label>
                 </div>
-                {!(updatedOrder.id === "") && (
+                {!(props.blanks) && (
                     <>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
                 )}
-                {(updatedOrder.id === "") && (
+                {(props.blanks) && (
                     <>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} value="Start Order" />                    
                     </>
@@ -527,6 +527,7 @@ function Order(){
     const [items,setItems] = useState([])
     const [openOrds,setOpenOrds] = useState([])
     const [locs,setLocs] = useState([])
+    const [blanks,setBlanks] = useState(true)
 
 
     useEffect(() => {
@@ -566,7 +567,10 @@ function Order(){
                 setCurrOrd([]);
                 setCurrOrd(values => ({...values,["location"]:id}));        
             }
-            else setCurrOrd(order);
+            else {                
+                setBlanks(false);
+                setCurrOrd(order);
+            }
     }
 
     const HouseDiv = {
@@ -630,7 +634,7 @@ function Order(){
             </div>
 
             <>
-            {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} />}
+            {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} blanks={blanks} />}
             </>
 
             <div style={LocationsHouseDiv}>
