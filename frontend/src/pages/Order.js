@@ -435,9 +435,7 @@ const DeleteButton = {
                         ))}
                     </select>
                 </label>
-                <label>
-                   <b style={EditOrderSubHeadingH}>{props.workorder.total}</b>
-                </label>
+                <label style={EditOrderSubHeadingH}>Total: ${props.workorder.total}</label>
                 </div>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
