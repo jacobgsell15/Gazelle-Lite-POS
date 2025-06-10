@@ -195,6 +195,9 @@ function EditOrder(props){
                 
             const utotal = props.workorder.total + res.data.price;
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":res.data.table,"guests":res.data.guests,"total":utotal,"finalized_list":res.data.finalized_list,"completed":false}
+            console.log(props.workorder)
+            console.log(utotal)
+            console.log(uorder)
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
                 .then((res) => setReload(true));
