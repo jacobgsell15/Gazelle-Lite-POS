@@ -203,7 +203,7 @@ function EditOrder(props){
                 .then((res) => setReload(true));
         })
         setSelectedValue('')
-        return;
+        setReload(true);
     };
 
     const handleSubmit = (event) => {
