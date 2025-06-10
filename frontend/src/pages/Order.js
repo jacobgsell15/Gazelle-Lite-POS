@@ -187,8 +187,6 @@ function EditOrder(props){
         .get(`/api/items/${value}/`)
         .then((res) => {
             const item = {"id":"","order":order.id,"item":value,"description":res.data.description,"modification":"Add Modification","unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
-            console.log(item)
-            console.log(res.data)
             axios
                 .post("/api/additems/", item)
                 .then((res) => console.log(res));
@@ -215,14 +213,14 @@ function EditOrder(props){
                 .get("api/items/")
                 .then((response) => {setItems(response.data)})
                 .catch ((error) => {
-                    console.error("Error fetching data:", error)
+                    console.log("Error fetching data:", error)
                 })
 
             await axios
                 .get("/api/additems/") // Replace with your API URL
                 .then((response) => {setAllAdd(response.data)})
                 .catch ((error) => {
-                    console.error("Error fetching data:", error);
+                    console.log("Error fetching data:", error);
                 })
         };  
         setReload(false);      
@@ -240,12 +238,7 @@ function EditOrder(props){
             const new_guests = props.location.guests + parseInt(updatedOrder.guests);
             const new_avail = props.location.avail - 1;
             const new_taken = props.location.taken + 1;
-            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}
-            console.log(locationHandler);
-            console.log(props.location);
-            console.log(uloc);
-            console.log(new_guests);
-            alert('red')              
+            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}             
             axios
                 .put(`/api/locations/${props.location.id}/`,uloc)
                 .then((res) => console.log(res))
@@ -267,11 +260,7 @@ function EditOrder(props){
             const new_guests = props.location.guests - parseInt(updatedOrder.guests);
             const new_avail = props.location.avail + 1;
             const new_taken = props.location.taken - 1;
-            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}
-            console.log(locationHandler);
-            console.log(props.location);
-            console.log(uloc);
-            console.log(new_guests);         
+            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}     
             axios
                 .put(`/api/locations/${props.location.id}/`,uloc)
                 .then((res) => console.log(res))
@@ -399,7 +388,6 @@ const DeleteButton = {
     padding:"0px",
     fontSize:"12px"
 }
-    console.log(props.workorder);
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
@@ -604,21 +592,21 @@ function Order(){
                 .get("/api/locations/")
                 .then((response) => {setLocs(response.data)})
                 .catch ((eror) => {
-                    console.error("Error fetching data:", eror)
+                    console.log("Error fetching data:", eror)
                 })
 
             await axios
                 .get("/api/orders/") // Replace with your API URL
                 .then((response) => {setOpenOrds(response.data)})
                 .catch ((error) => {
-                    console.error("Error fetching data:", error);
+                    console.log("Error fetching data:", error);
                 })
 
             await axios
                 .get("/api/items/")
                 .then((response) => {setItems(response.data)})
                 .catch ((eror) => {
-                    console.error("Error fetching data:", eror)
+                    console.log("Error fetching data:", eror)
                 })
         };        
         fetchData();
