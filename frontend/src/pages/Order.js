@@ -172,7 +172,6 @@ function EditOrder(props){
     const [reload, setReload] = useState(false);
     const [updateHover,setUpdateHover] = useState(false);
     const [deleteHover,setDeleteHover] = useState(false);
-    const [runningTotal,setRunningTotal] = useState(props.workorder.total);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -194,9 +193,9 @@ function EditOrder(props){
                 .post("/api/additems/", item)
                 .then((res) => console.log(res));
                 
-            const utotal = props.workorder.total + res.data.price;
+            const utotal = updatedOrder.total + res.data.price;
             setUpdatedOrder(values => ({...values,["total"]:utotal}))
-            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":props.workorder.table,"guests":props.workorder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
+            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
                 .then((res) => console.log(res));
