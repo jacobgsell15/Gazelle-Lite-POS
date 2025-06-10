@@ -191,7 +191,7 @@ function EditOrder(props){
             console.log(res.data)
             axios
                 .post("/api/additems/", item)
-                .then((res) => setReload(true));
+                .then((res) => console.log(res));
                 
             const utotal = props.workorder.total + res.data.price;
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":props.workorder.table,"guests":props.workorder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
@@ -200,7 +200,7 @@ function EditOrder(props){
             console.log(uorder)
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
-                .then((res) => setReload(true));
+                .then((res) => console.log(res));
         })
         setSelectedValue('')
         setReload(true);
