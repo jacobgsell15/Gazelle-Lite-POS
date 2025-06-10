@@ -194,7 +194,7 @@ function EditOrder(props){
                 .then((res) => setReload(true));
                 
             const utotal = props.workorder.total + res.data.price;
-            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":res.data.table,"guests":res.data.guests,"total":utotal,"finalized_list":res.data.finalized_list,"completed":false}
+            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":props.workorder.table,"guests":props.workorder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
             console.log(props.workorder)
             console.log(utotal)
             console.log(uorder)
