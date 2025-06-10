@@ -229,7 +229,8 @@ function EditOrder(props){
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}           
             const new_guests = props.location.guests + parseInt(updatedOrder.guests);
             const new_avail = props.location.avail - 1;
-            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}
+            const new_taken = props.location.taken + 1;
+            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}
             console.log(locationHandler);
             console.log(props.location);
             console.log(uloc);
