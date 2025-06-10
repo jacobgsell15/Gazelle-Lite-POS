@@ -200,7 +200,6 @@ function EditOrder(props){
                 .then((res) => setReload(true));
         })
         setSelectedValue('')
-        const utotal = props.workorder.total + 
         return;
     };
 
