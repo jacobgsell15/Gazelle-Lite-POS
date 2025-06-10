@@ -172,6 +172,7 @@ function EditOrder(props){
     const [reload, setReload] = useState(false);
     const [updateHover,setUpdateHover] = useState(false);
     const [deleteHover,setDeleteHover] = useState(false);
+    const [runningTotal,setRunningTotal] = useState(props.workorder.total);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -194,6 +195,7 @@ function EditOrder(props){
                 .then((res) => console.log(res));
                 
             const utotal = props.workorder.total + res.data.price;
+            setRunningTotal(utotal);
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":props.workorder.table,"guests":props.workorder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
             console.log(props.workorder)
             console.log(utotal)
@@ -447,7 +449,7 @@ const DeleteButton = {
                         ))}
                     </select>
                 </label>
-                <label style={EditOrderSubHeadingH}>Total: ${props.workorder.total}</label>
+                <label style={EditOrderSubHeadingH}>Total: ${runningTotal}</label>
                 </div>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
