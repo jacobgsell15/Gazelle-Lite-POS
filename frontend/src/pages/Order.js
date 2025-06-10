@@ -393,7 +393,7 @@ const DeleteButton = {
                     <input 
                         type="number" 
                         name="guests" 
-                        value={inputs.guests || updatedOrder.guests || 0} 
+                        value={inputs.guests || updatedOrder.guests || ""} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
