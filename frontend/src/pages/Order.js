@@ -244,7 +244,7 @@ function EditOrder(props){
                 })            
             axios
                 .post('/api/orders/',uorder)
-                .then((res) => setReload(true))
+                .then((res) => console.log(res))
                 .catch ((eror) => {
                     console.log("Error fetching data:", eror)
                     alert(eror)
