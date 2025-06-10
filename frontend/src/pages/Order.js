@@ -279,6 +279,13 @@ function EditOrder(props){
             axios
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => setReload(true));
+
+            const utotal = updatedOrder.total + (item.qty * item.unit_price);
+            setUpdatedOrder(values => ({...values,["total"]:utotal}))
+            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
+            axios
+                .put(`/api/orders/${props.workorder.id}/`, uorder)
+                .then((res) => console.log(res));
             return;
         }
     }
@@ -287,6 +294,13 @@ function EditOrder(props){
         axios
             .delete(`/api/additems/${item.id}/`)
             .then((res) => setReload(true));
+        
+        const utotal = updatedOrder.total - (item.qty * item.unit_price);
+        setUpdatedOrder(values => ({...values,["total"]:utotal}))
+        const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
+        axios
+           .put(`/api/orders/${props.workorder.id}/`, uorder)
+           .then((res) => console.log(res));
         return;
     }
 const EditOrderDiv = {
