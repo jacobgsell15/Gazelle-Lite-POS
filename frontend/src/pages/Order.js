@@ -185,7 +185,7 @@ function EditOrder(props){
         axios
         .get(`/api/items/${event.target.value}/`)
         .then((res) => {
-            const item = {"id":"","order":order.id,"item":res.data.id,"description":res.data.description,"modification":"Add Modification","unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
+            const item = {"id":"","order":order.id,"item":res.data.item,"description":res.data.description,"modification":"Add Modification","unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
             console.log(item)
             console.log(res.data)
             axios
