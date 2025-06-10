@@ -254,6 +254,22 @@ function EditOrder(props){
     }
 
     const handleDelete = (event, order) => {
+            const new_guests = props.location.guests - parseInt(updatedOrder.guests);
+            const new_avail = props.location.avail + 1;
+            const new_taken = props.location.taken - 1;
+            const uloc = {"id":props.location.id,"name":props.location.name,"tables":props.location.tables,"taken":new_taken,"avail":new_avail,"guests":new_guests,"staff":0,"waiting":0}
+            console.log(locationHandler);
+            console.log(props.location);
+            console.log(uloc);
+            console.log(new_guests);         
+            axios
+                .put(`/api/locations/${props.location.id}/`,uloc)
+                .then((res) => console.log(res))
+                .catch ((eror) => {
+                    console.log("Error fetching data:", eror)
+                    alert(eror)
+                })            
+        setUpdatedOrder([]);
         axios
             .delete(`/api/orders/${order.id}/`)
             .then((res) => setReload(true))
@@ -501,10 +517,10 @@ function OrderLocationElement(props){
                     <b>Available: {props.location.avail}</b>
                 </div>
                 <div style={LocationInfoCol}>
-                    <b>Dining: {props.location.dining}</b>
+                    <b>Dining: {props.location.taken}</b>
                     <br />
                     <br />
-                    <b>Waiting: {props.location.waiting}</b>
+                    <b>Registers: {props.location.waiting}</b>
                 </div>
                 <div style={LocationInfoCol}>
                     <b>Guests: {props.location.guests}</b>
