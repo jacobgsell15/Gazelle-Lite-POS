@@ -195,11 +195,8 @@ function EditOrder(props){
                 .then((res) => console.log(res));
                 
             const utotal = props.workorder.total + res.data.price;
-            setRunningTotal(utotal);
+            setUpdatedOrder(values => ({...values,["total"]:utotal}))
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":props.workorder.table,"guests":props.workorder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
-            console.log(props.workorder)
-            console.log(utotal)
-            console.log(uorder)
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
                 .then((res) => console.log(res));
@@ -449,7 +446,15 @@ const DeleteButton = {
                         ))}
                     </select>
                 </label>
-                <label style={EditOrderSubHeadingH}>Total: ${runningTotal}</label>
+                <label style={EditOrderSubHeadingH}>Total: $
+                    <input 
+                        type="number" 
+                        name="guests" 
+                        value={inputs.total || updatedOrder.total || ""} 
+                        style={EditOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
                 </div>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} /><button style={DeleteButton} onClick={(event) => handleDelete(event,props.workorder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
                     </>
