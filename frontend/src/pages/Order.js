@@ -183,9 +183,9 @@ function EditOrder(props){
     const handleSelect = (event,order) => {
         setSelectedValue(event.target.value);
         axios
-        .get(`/api/additems/${event.target.value}/`)
+        .get(`/api/items/${event.target.value}/`)
         .then((res) => {
-            const item = {"order":order.id,"item":res.data.id,"description":res.data.description,"unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
+            const item = {"id":"","order":order.id,"item":res.data.id,"description":res.data.description,"unit_price":res.data.price,"qty":1,"price":res.data.price,"guest":1}
             axios
                 .post("/api/additems/", item)
                 .then((res) => setReload(true));
