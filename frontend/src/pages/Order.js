@@ -253,6 +253,7 @@ function EditOrder(props){
                     console.log("Error fetching data:", eror)
                     alert(eror)
                 })
+            setReload(true)
         }
     }
 
@@ -278,7 +279,7 @@ function EditOrder(props){
         if (uitem.id === item.id) {
             axios
                 .put(`/api/additems/${item.id}/`, uitem)
-                .then((res) => setReload(true));
+                .then((res) => console.log(res));
 
             const utotal = updatedOrder.total + (item.qty * item.unit_price);
             setUpdatedOrder(values => ({...values,["total"]:utotal}))
@@ -286,6 +287,7 @@ function EditOrder(props){
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
                 .then((res) => console.log(res));
+            setReload(true)
             return;
         }
     }
@@ -293,7 +295,7 @@ function EditOrder(props){
     const handleLIDelete = (item) => {
         axios
             .delete(`/api/additems/${item.id}/`)
-            .then((res) => setReload(true));
+            .then((res) => console.log(res));
         
         const utotal = updatedOrder.total - (item.qty * item.unit_price);
         setUpdatedOrder(values => ({...values,["total"]:utotal}))
@@ -301,6 +303,7 @@ function EditOrder(props){
         axios
            .put(`/api/orders/${props.workorder.id}/`, uorder)
            .then((res) => console.log(res));
+        setReload(true)
         return;
     }
 const EditOrderDiv = {
