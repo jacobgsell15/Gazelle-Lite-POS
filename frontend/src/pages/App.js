@@ -39,13 +39,15 @@ function Floater(props) {
   }
   return (
     <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} style={FloaterDiv}>
+      <Link to={props.floater.link}>
       <div style={FloaterH}>
-        <Link style={FloaterH} to={props.floater.link}>{props.floater.title}</Link>
+        <b style={FloaterH} to={props.floater.link}>{props.floater.title}</b>
       </div>
       <br />
       <div style={FloaterP}>
         <p>{props.floater.description}</p>
       </div>
+      </Link>
     </div>
   )
 }

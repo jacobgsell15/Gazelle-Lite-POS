@@ -631,8 +631,8 @@ function Order(){
 
     const handleToggle = (event, order, id) => {
         if(toggleComp){
-             setToggleComp(false);
              setCurrOrd([]);
+             setToggleComp(false);
         }
         else{
             setToggleComp(true)};
