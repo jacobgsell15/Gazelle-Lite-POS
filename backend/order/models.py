@@ -32,7 +32,7 @@ class Item(models.Model):
     description = models.CharField(max_length=120,default="")
     recipe = models.TextField()
     cost = models.DecimalField(decimal_places=2)
-    price = models.DecimalField(decimal_places=)
+    price = models.DecimalField(decimal_places=2)
 
     def _str_(self):
         return self.id
