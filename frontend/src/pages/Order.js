@@ -452,7 +452,7 @@ const DeleteButton = {
                 </label>
                 <label style={EditOrderSubHeadingH}>Total: $
                     <input 
-                        type="number" 
+                        type="text" 
                         name="total" 
                         value={inputs.total || updatedOrder.total || ""} 
                         style={EditOrderSubHeadingInput1}
