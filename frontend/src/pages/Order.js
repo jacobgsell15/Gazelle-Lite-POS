@@ -454,7 +454,7 @@ const DeleteButton = {
                     <input 
                         type="number" 
                         name="total" 
-                        value={inputs.total.toFixed(2) || updatedOrder.total.toFixed(2) || ""} 
+                        value={inputs.total || updatedOrder.total || ""} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
