@@ -191,7 +191,7 @@ function EditOrder(props){
                 .post("/api/additems/", item)
                 .then((res) => console.log(res));
                 
-            const utotal = updatedOrder.total + res.data.price;
+            const utotal = parseFloat(updatedOrder.total) + res.data.price;
             setUpdatedOrder(values => ({...values,["total"]:utotal}))
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
             axios
@@ -281,7 +281,7 @@ function EditOrder(props){
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => console.log(res));
 
-            const utotal = updatedOrder.total + (item.qty * item.unit_price);
+            const utotal = parseFloat(updatedOrder.total) + (item.qty * item.unit_price);
             setUpdatedOrder(values => ({...values,["total"]:utotal}))
             const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
             axios
@@ -452,7 +452,7 @@ const DeleteButton = {
                 </label>
                 <label style={EditOrderSubHeadingH}>Total: $
                     <input 
-                        type="text" 
+                        type="number" 
                         name="total" 
                         value={inputs.total || updatedOrder.total || ""} 
                         style={EditOrderSubHeadingInput1}
