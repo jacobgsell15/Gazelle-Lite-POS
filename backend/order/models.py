@@ -20,7 +20,7 @@ class Order(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     table = models.IntegerField()
     guests = models.IntegerField()
-    total = models.DecimalField(decimal_places=2)
+    total = models.DecimalField(max_digits=5,decimal_places=2)
     finalized_list = models.JSONField()
     completed = models. BooleanField()
 
@@ -31,8 +31,8 @@ class Item(models.Model):
     id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=120,default="")
     recipe = models.TextField()
-    cost = models.DecimalField(decimal_places=2)
-    price = models.DecimalField(decimal_places=2)
+    cost = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def _str_(self):
         return self.id
@@ -43,9 +43,9 @@ class AddItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     description = models.CharField(max_length=120,default="")
     modification = models.TextField()
-    unit_price = models.DecimalField(decimal_places=2)
+    unit_price = models.DecimalField(max_digits=5,decimal_places=2)
     qty = models.IntegerField()
-    price = models.DecimalField(decimal_places=2)
+    price = models.DecimalField(max_digits=5,decimal_places=2)
     guest = models.IntegerField(default=1)
 
     def _str_(self):
