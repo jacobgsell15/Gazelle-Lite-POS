@@ -18,8 +18,6 @@ new StaxJs('Stax-Payments-Demo-34c86b0f9e7c', {
 
 staxJs.showCardForm().then(handler => {
   console.log('form loaded');
-
-  // for testing!
   handler.setTestPan('4111111111111111');
   handler.setTestCvv('123');
   var form = document.querySelector('form');
@@ -81,24 +79,19 @@ document.querySelector('#paybutton').onclick = () => {
     console.log('pay:');
     console.log(result);
     if (result.id) {
-      successElement.querySelector('.token').textContent = result.payment_method_id;
-      successElement.classList.add('visible');
-      loaderElement.classList.remove('visible');
+      console.log('success')
     }
   })
   .catch(err => {
     // if a transaction did occur, but errored, the error will be in the message of the first child transactoin
     if (err.payment_attempt_message) {
-      errorElement.textContent = err.payment_attempt_message;
+      console.log('error')
     } else {
       // else, there may have been a validation error - and tokenization failed
       // err can contain an object where each key is a field name that points to an array of errors
       // such as {phone_number: ['The phone number is invalid']}
-      errorElement.textContent = typeof err === 'object' ? err.message || Object.keys(err).map((k) => err[k].join(' ')).join(' ') : JSON.stringify(err);
+      console.log('error')
     }
-
-    errorElement.classList.add('visible');
-    loaderElement.classList.remove('visible');
   });
 }
 
