@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import axios from 'axios'
 
 function PaymentField(props){
-new StaxJs('Stax-Payments-Demo-34c86b0f9e7c', {
+new StaxJs('Covestone-Corporations-67ca113d35e80f9e7c', {
   number: {
     id: 'card-number',
     placeholder: '0000 0000 0000 0000',
