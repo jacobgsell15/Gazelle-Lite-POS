@@ -565,7 +565,7 @@ const DeleteButton = {
                         onChange={handleChange}
                     />
                     </label>
-                    <button style={DeleteButton} onClick={(event) => Pay()} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Pay</button>
+                    <button style={DeleteButton} onClick={(event) => props.OnClick(event,updatedOrder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Pay</button>
                 </div>
                 <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
@@ -732,7 +732,9 @@ function OrderListRow(props){
 
 function Order(){
     const [toggleComp,setToggleComp] = useState(false)
+    const [togglePay,setTogglePay] = useState(false)
     const [currOrd,setCurrOrd] = useState([])
+    const [payOrd, setPayOrd] = useState([])
     const [items,setItems] = useState([])
     const [openOrds,setOpenOrds] = useState([])
     const [locs,setLocs] = useState([])
@@ -780,6 +782,18 @@ function Order(){
                 setBlanks(false);
                 setCurrOrd(order);
             }
+    }
+    
+    const handlePayToggle = (event, order) => {   
+        setCurrOrd([]);
+        setToggleComp(false);
+        if(togglePay){
+             setPayOrd([]);
+             setTogglePay(false);
+        }
+        else{
+            setPayOrd(order)
+            setTogglePay(true)};
     }
 
     const HouseDiv = {
@@ -843,7 +857,8 @@ function Order(){
             </div>
 
             <>
-            {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} blanks={blanks} />}
+            {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} blanks={blanks} onClick={handlePayToggle}/>}
+            {payComp && <PaymentField payorder={payOrd} />}
             </>
 
             <div style={LocationsHouseDiv}>
