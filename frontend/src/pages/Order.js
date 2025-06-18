@@ -61,12 +61,12 @@ const PayOrderSubHeadingDiv = {
     padding:"15px 0px 0px 15px" 
 }
 const DivL = {
-    width:"60%",
+    width:"50%",
     height:"100%",
     float:"left"
 }
 const DivR = {
-    width:"30%",
+    width:"50%",
     height:"100%",
     float:"left"
 }
