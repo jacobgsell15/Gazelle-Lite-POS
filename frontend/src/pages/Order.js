@@ -568,7 +568,7 @@ const EditOrderHeadingH = {
     textAlign:"center",
     fontWeight:"200",
     fontSize:"14pt",
-    margin:"15px auto",
+    margin:"10px auto",
     padding:"0"
 }
 const EditOrderSubHeadingDiv = {        
