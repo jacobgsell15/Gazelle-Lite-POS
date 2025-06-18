@@ -6,7 +6,6 @@ function PaymentField(props){
     const [inputs,setInputs] = useState({});
     const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
     const [updateHover,setUpdateHover] = useState(false);
-    const [deleteHover,setDeleteHover] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -20,10 +19,10 @@ function PaymentField(props){
         console.log('event');
     }
     
-    const handleUpdate = (event, order) => {
-        if (updatedOrder.id === payorderorder.id && updatedOrder.id != null){
+    const handleUpdate = (event) => {
+        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null){
             axios
-                .delete(`/api/orders/${order.id}/`)
+                .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => setReload(true))
         }        
     }
@@ -102,7 +101,7 @@ return (
             <div style={PayOrderHeadingDiv}>
                 <div style={PayOrderHeadingH}><b>Pay Order</b></div>
             </div>
-            <form onSubmit={(event) => handleUpdate(event,props.payorder)}>
+            <form onSubmit={(event) => handleUpdate(event)}>
                 <div style={PayOrderSubHeadingDiv}>
                     <label style={PayOrderSubHeadingH}>First:
                     <input 
@@ -113,7 +112,7 @@ return (
                         onChange={handleChange}
                     />
                     </label>
-                    <label style={EditOrderSubHeadingH}>Last:
+                    <label style={PayOrderSubHeadingH}>Last:
                     <input 
                         type="text" 
                         name="cardholder-last-name" 
