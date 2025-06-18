@@ -57,7 +57,7 @@ const PayOrderHeadingH = {
 const PayOrderSubHeadingDiv = {        
     borderBottom:"1px solid #C5C5C5",
     width:"100%",
-    height:"350px",
+    height:"250px",
     padding:"15px 0px 0px 0px" 
 }
 const PayOrderSubHeadingH = {            
