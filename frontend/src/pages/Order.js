@@ -345,6 +345,9 @@ function EditOrder(props){
         setReload(true)
         return;
     }
+    const startPay = (event) => {
+    props.OnClick(event,updatedOrder)
+}
 
 const EditOrderDiv = {
     border:"1px solid #C5C5C5",
@@ -470,7 +473,7 @@ const DeleteButton = {
                         onChange={handleChange}
                     />
                     </label>
-                    <button style={DeleteButton} onClick={(event) => props.OnClick(event,updatedOrder)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Pay</button>
+                    <button style={DeleteButton} onClick={(event) => startPay(event)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Pay</button>
                 </div>
                 <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
