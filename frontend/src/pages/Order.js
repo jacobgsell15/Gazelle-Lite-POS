@@ -23,7 +23,7 @@ function PaymentField(props){
         if (updatedOrder.id === props.payorder.id && updatedOrder.id != null){
             axios
                 .delete(`/api/orders/${props.payorder.id}/`)
-                .then((res) => setReload(true))
+                .then((res) => console.log(res))
         }        
     }
 
