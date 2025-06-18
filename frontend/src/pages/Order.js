@@ -569,7 +569,7 @@ const EditOrderHeadingH = {
     fontWeight:"200",
     fontSize:"14pt",
     margin:"auto",
-    padding:"5px"
+    padding:"0px"
 }
 const EditOrderSubHeadingDiv = {        
     borderBottom:"1px solid #C5C5C5",
