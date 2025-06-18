@@ -56,7 +56,7 @@ const PayOrderHeadingH = {
 const PayOrderSubHeadingDiv = {        
     borderBottom:"1px solid #C5C5C5",
     width:"100%",
-    height:"50px",
+    height:"350px",
     padding:"15px 0px 0px 0px" 
 }
 const PayOrderSubHeadingH = {            
@@ -64,6 +64,17 @@ const PayOrderSubHeadingH = {
     paddingLeft:"10px",
 }
 const PayOrderSubHeadingInput1 = {    
+    height:"20px",
+    width:"55px",   
+    fontWeight:"100",
+    fontSize:"10pt",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    borderRadius:"4px",
+    textAlign:"center",
+    padding:"2px"
+}
+const PayOrderSubHeadingInput2 = {    
     height:"20px",
     width:"55px",   
     fontWeight:"100",
@@ -127,7 +138,7 @@ return (
                         type="text" 
                         name="phone" 
                         value={inputs.phone || updatedOrder.phone || "(000) 000 0000"} 
-                        style={PayOrderSubHeadingInput1}
+                        style={PayOrderSubHeadingInput2}
                         onChange={handleChange}
                     />
                     </label>
@@ -135,7 +146,7 @@ return (
                     <input 
                         type="number" 
                         name="total" 
-                        value={inputs.last || updatedOrder.total || ""} 
+                        value={inputs.total || updatedOrder.total || ""} 
                         style={PayOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -146,7 +157,7 @@ return (
                         type="text" 
                         name="card-number" 
                         value={inputs.card || updatedOrder.card || "0000 0000 0000 0000"} 
-                        style={PayOrderSubHeadingInput1}
+                        style={PayOrderSubHeadingInput2}
                         onChange={handleChange}
                     />
                     </label>
