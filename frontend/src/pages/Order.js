@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useEffect} from 'react';
+import {StaxJs} from 'https://staxjs.staxpayments.com/stax.js';
 import axios from 'axios'
 
 function PaymentField(props){
