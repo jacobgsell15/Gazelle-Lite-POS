@@ -60,6 +60,16 @@ const PayOrderSubHeadingDiv = {
     height:"250px",
     padding:"15px 0px 0px 15px" 
 }
+const DivL = {
+    width:"30%",
+    height:"100%",
+    float:"left"
+}
+const DivR = {
+    width:"30%",
+    height:"100%",
+    float:"left"
+}
 const PayOrderSubHeadingH = {            
     color:"#000000",
     padding:"10px",
@@ -115,20 +125,12 @@ return (
             </div>
             <form onSubmit={(event) => handleUpdate(event)}>
                 <div style={PayOrderSubHeadingDiv}>
+                    <div style={DivL}>
                     <label style={PayOrderSubHeadingH}>First:
                     <input 
                         type="text" 
                         name="cardholder-first-name" 
                         value={inputs.first || updatedOrder.first || ""} 
-                        style={PayOrderSubHeadingInput1}
-                        onChange={handleChange}
-                    />
-                    </label>
-                    <label style={PayOrderSubHeadingH}>Last:
-                    <input 
-                        type="text" 
-                        name="cardholder-last-name" 
-                        value={inputs.last || updatedOrder.last || ""} 
                         style={PayOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -143,15 +145,6 @@ return (
                         onChange={handleChange}
                     />
                     </label>
-                    <label style={PayOrderSubHeadingH}>Total:
-                    <input 
-                        type="number" 
-                        name="total" 
-                        value={inputs.total || updatedOrder.total || ""} 
-                        style={PayOrderSubHeadingInput1}
-                        onChange={handleChange}
-                    />
-                    </label>
                     <br />
                     <label style={PayOrderSubHeadingH}>Card:
                     <input 
@@ -162,30 +155,12 @@ return (
                         onChange={handleChange}
                     />
                     </label>
-                    <label style={PayOrderSubHeadingH}>CVV:
-                    <input 
-                        type="number" 
-                        name="card-cvv" 
-                        value={inputs.cvv || updatedOrder.cvv || "000"} 
-                        style={PayOrderSubHeadingInput1}
-                        onChange={handleChange}
-                    />
-                    </label>
                     <br />
                     <label style={PayOrderSubHeadingH}>Exp:
                     <input 
                         type="text" 
                         name="exp" 
                         value={inputs.exp || updatedOrder.exp || "00/00"} 
-                        style={PayOrderSubHeadingInput1}
-                        onChange={handleChange}
-                    />
-                    </label>
-                    <label style={PayOrderSubHeadingH}>Zip:
-                    <input 
-                        type="number" 
-                        name="zip" 
-                        value={inputs.zip || updatedOrder.zip || ""} 
                         style={PayOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -200,15 +175,6 @@ return (
                         onChange={handleChange}
                     />
                     </label>
-                    <label style={PayOrderSubHeadingH}>City:
-                    <input 
-                        type="text" 
-                        name="city" 
-                        value={inputs.city || updatedOrder.city || ""} 
-                        style={PayOrderSubHeadingInput2}
-                        onChange={handleChange}
-                    />
-                    </label>
                     <br />
                     <label style={PayOrderSubHeadingH}>State:
                     <input 
@@ -219,6 +185,58 @@ return (
                         onChange={handleChange}
                     />
                     </label>
+                    </div>
+                    <div style={DivR}>
+                    <label style={PayOrderSubHeadingH}>Last:
+                    <input 
+                        type="text" 
+                        name="cardholder-last-name" 
+                        value={inputs.last || updatedOrder.last || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>Total:
+                    <input 
+                        type="number" 
+                        name="total" 
+                        value={inputs.total || updatedOrder.total || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>CVV:
+                    <input 
+                        type="number" 
+                        name="card-cvv" 
+                        value={inputs.cvv || updatedOrder.cvv || "000"} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />                    
+                    <label style={PayOrderSubHeadingH}>Zip:
+                    <input 
+                        type="number" 
+                        name="zip" 
+                        value={inputs.zip || updatedOrder.zip || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />                    
+                    <label style={PayOrderSubHeadingH}>City:
+                    <input 
+                        type="text" 
+                        name="city" 
+                        value={inputs.city || updatedOrder.city || ""} 
+                        style={PayOrderSubHeadingInput2}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />                    
                     <label style={PayOrderSubHeadingH}>Country:
                     <input 
                         type="text" 
@@ -228,6 +246,7 @@ return (
                         onChange={handleChange}
                     />
                     </label>
+                    </div>
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
