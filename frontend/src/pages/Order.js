@@ -891,7 +891,7 @@ function Order(){
         if(toggleComp){
              setCurrOrd([]);
              setToggleComp(false);
-             setBlanks(false);
+             setBlanks(true);
         }
         else{
             setToggleComp(true)};
