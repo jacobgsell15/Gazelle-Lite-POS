@@ -616,7 +616,7 @@ const PayButton = {
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
-    margin:"10px",
+    margin:"5px",
     fontSize:"12px"
 }
 const SubmitButton = {
