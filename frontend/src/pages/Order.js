@@ -3,9 +3,133 @@ import {useEffect} from 'react';
 import axios from 'axios'
 
 function PaymentField(props){
-    alert('stop')
+    const [inputs,setInputs] = useState({});
+    const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
+    const [updateHover,setUpdateHover] = useState(false);
+    const [deleteHover,setDeleteHover] = useState(false);
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values,[name]:value}))
+        setUpdatedOrder(values => ({...values,[name]:value}))
+    }
+
+    const handleSubmit = (event) => {
+        //event.preventDefaults();
+        console.log('event');
+    }
+    
+    const handleUpdate = (event, order) => {
+        if (updatedOrder.id === payorderorder.id && updatedOrder.id != null){
+            axios
+                .delete(`/api/orders/${order.id}/`)
+                .then((res) => setReload(true))
+        }        
+    }
+
+const PayOrderDiv = {
+    border:"1px solid #C5C5C5",
+    backgroundColor: '#FFFFFF',
+    borderRadius: '8px',        
+    boxShadow: '0px 2px  rgba(0,0,0,.25)',
+    width:"400px",
+    height:"450px",
+    margin:"20px",
+    textAlign:"center",
+    float:"left"
+}
+const PayOrderHeadingDiv = {        
+    borderBottom:"1px solid #C5C5C5",
+    width:"100%",
+    height:"50px"
+}
+const PayOrderHeadingH = {        
+    color:"#555555",
+    width:"70%",
+    height:"25px",
+    textAlign:"center",
+    fontWeight:"200",
+    fontSize:"14pt",
+    margin:"15px auto",
+    padding:"0"
+}
+const PayOrderSubHeadingDiv = {        
+    borderBottom:"1px solid #C5C5C5",
+    width:"100%",
+    height:"50px",
+    padding:"15px 0px 0px 0px" 
+}
+const PayOrderSubHeadingH = {            
+    color:"#000000",
+    paddingLeft:"10px",
+}
+const PayOrderSubHeadingInput1 = {    
+    height:"20px",
+    width:"55px",   
+    fontWeight:"100",
+    fontSize:"10pt",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    borderRadius:"4px",
+    textAlign:"center",
+    padding:"2px"
+}
+const PayOrderBottomRowDiv = {        
+    borderBottom:"1px solid #C5C5C5",
+    backgroundColor:"rgba(0,0,0,.05)",
+    textAlign:"left",
+    width:"95%",
+    height:"50px", 
+    padding:"5px 0px 0px 5%"  
+}
+const SubmitButton = {
+    width:"45px",
+    height:"20px",
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
+}
 return (
-<>
+    <>
+     <div style={PayOrderDiv}>
+            <div style={PayOrderHeadingDiv}>
+                <div style={PayOrderHeadingH}><b>Pay Order</b></div>
+            </div>
+            <form onSubmit={(event) => handleUpdate(event,props.payorder)}>
+                <div style={PayOrderSubHeadingDiv}>
+                    <label style={PayOrderSubHeadingH}>First:
+                    <input 
+                        type="text" 
+                        name="cardholder-first-name" 
+                        value={inputs.first || updatedOrder.last || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={EditOrderSubHeadingH}>Last:
+                    <input 
+                        type="text" 
+                        name="cardholder-last-name" 
+                        value={inputs.last || updatedOrder.last || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                </div>
+                <div style={PayOrderBottomRowDiv}>
+                    <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
+                </div>
+            </form>
+        </div>
+        </>
+/*<>
   <form onsubmit="return false;">
     <div class="group">
       <label>
@@ -37,7 +161,7 @@ return (
     </div>
     <button id="paybutton">Pay $1</button>
   </form>
-</>
+</>*/
 )
 
 }
