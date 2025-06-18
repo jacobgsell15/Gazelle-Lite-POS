@@ -515,9 +515,11 @@ function EditOrder(props){
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => console.log(res));
 
-            const utotal = parseFloat(updatedOrder.total) + parseFloat(item.qty * item.unit_price);
-            setUpdatedOrder(values => ({...values,["total"]:utotal}))
-            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":utotal,"finalized_list":props.workorder.finalized_list,"completed":false}
+            if(uitem.qty != item.qty) {
+                const utotal = parseFloat(updatedOrder.total) + parseFloat(item.qty * item.unit_price);
+                setUpdatedOrder(values => ({...values,["total"]:utotal}))
+            }
+            const uorder = {"id":props.workorder.id,"location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":updatedOrder.total,"finalized_list":props.workorder.finalized_list,"completed":false}
             axios
                 .put(`/api/orders/${props.workorder.id}/`, uorder)
                 .then((res) => console.log(res));
