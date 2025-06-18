@@ -58,7 +58,7 @@ const PayOrderSubHeadingDiv = {
     borderBottom:"1px solid #C5C5C5",
     width:"100%",
     height:"250px",
-    padding:"15px 0px 0px 0px" 
+    padding:"15px 0px 0px 15px" 
 }
 const PayOrderSubHeadingH = {            
     color:"#000000",
@@ -77,7 +77,7 @@ const PayOrderSubHeadingInput1 = {
 }
 const PayOrderSubHeadingInput2 = {    
     height:"20px",
-    width:"55px",   
+    width:"105px",   
     fontWeight:"100",
     fontSize:"10pt",
     border:"1px solid #C5C5C5",
