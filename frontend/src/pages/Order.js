@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import axios from 'axios'
 
 function PaymentField(props){
+    alert('stop')
 return (
 <>
   <form onsubmit="return false;">
