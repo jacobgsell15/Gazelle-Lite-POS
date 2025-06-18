@@ -348,7 +348,7 @@ function EditOrder(props){
     }
 
     const startPay = (event) => {
-    props.OnClick(event, updatedOrder)
+    props.OnClick(event, updatedOrder);
 }
 
 const EditOrderDiv = {
