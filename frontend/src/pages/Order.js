@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useEffect} from 'react';
-import {StaxJs} from 'https://staxjs.staxpayments.com/stax.js';
+import {StaxJs, staxJs} from 'https://staxjs.staxpayments.com/stax.js';
 import axios from 'axios'
 
 function PaymentField(props){
@@ -859,7 +859,7 @@ function Order(){
 
             <>
             {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} blanks={blanks} onClick={handlePayToggle}/>}
-            {payComp && <PaymentField payorder={payOrd} />}
+            {togglePay && <PaymentField payorder={payOrd} />}
             </>
 
             <div style={LocationsHouseDiv}>
