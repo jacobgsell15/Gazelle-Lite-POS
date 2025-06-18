@@ -616,7 +616,6 @@ const PayButton = {
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
-    margin:"5px",
     fontSize:"12px"
 }
 const SubmitButton = {
@@ -662,7 +661,7 @@ const DeleteButton = {
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
                 <div style={EditOrderHeadingH}><b>{props.location.name}</b></div>
-                {(props.blanks) && <button style={PayButton} onClick={(event) => startPay(event)} onMouseEnter={() => setPayHover(true)} onMouseLeave={() => setPayHover(false)}>Pay</button>}
+                {!(props.blanks) && <button style={PayButton} onClick={(event) => startPay(event)} onMouseEnter={() => setPayHover(true)} onMouseLeave={() => setPayHover(false)}>Pay</button>}
 
             </div>
             <form onSubmit={(event) => handleUpdate(event,props.workorder)}>
