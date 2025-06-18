@@ -35,12 +35,13 @@ const PayOrderDiv = {
     width:"400px",
     height:"450px",
     margin:"20px",
-    textAlign:"center",
+    textAlign:"left",
     float:"left"
 }
 const PayOrderHeadingDiv = {        
     borderBottom:"1px solid #C5C5C5",
     width:"100%",
+    textAlign:"center",
     height:"50px"
 }
 const PayOrderHeadingH = {        
@@ -61,7 +62,7 @@ const PayOrderSubHeadingDiv = {
 }
 const PayOrderSubHeadingH = {            
     color:"#000000",
-    paddingLeft:"10px",
+    padding:"10px",
 }
 const PayOrderSubHeadingInput1 = {    
     height:"20px",
