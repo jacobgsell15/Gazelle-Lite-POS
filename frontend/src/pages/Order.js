@@ -107,7 +107,7 @@ return (
                     <input 
                         type="text" 
                         name="cardholder-first-name" 
-                        value={inputs.first || updatedOrder.last || ""} 
+                        value={inputs.first || updatedOrder.first || ""} 
                         style={PayOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -121,6 +121,64 @@ return (
                         onChange={handleChange}
                     />
                     </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>Phone:
+                    <input 
+                        type="text" 
+                        name="phone" 
+                        value={inputs.phone || updatedOrder.phone || "(000) 000 0000"} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={PayOrderSubHeadingH}>Total:
+                    <input 
+                        type="number" 
+                        name="total" 
+                        value={inputs.last || updatedOrder.total || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>Card:
+                    <input 
+                        type="text" 
+                        name="card-number" 
+                        value={inputs.card || updatedOrder.card || "0000 0000 0000 0000"} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={PayOrderSubHeadingH}>CVV:
+                    <input 
+                        type="number" 
+                        name="card-cvv" 
+                        value={inputs.cvv || updatedOrder.cvv || "000"} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>Exp:
+                    <input 
+                        type="text" 
+                        name="exp" 
+                        value={inputs.exp || updatedOrder.exp || "00/00"} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={PayOrderSubHeadingH}>Zip:
+                    <input 
+                        type="number" 
+                        name="zip" 
+                        value={inputs.zip || updatedOrder.zip || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
