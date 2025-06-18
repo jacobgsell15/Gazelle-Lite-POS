@@ -602,7 +602,7 @@ const EditOrderBottomRowDiv = {
 
 const EditOrderRowHouseDiv = {
     overflowY:"scroll",
-    maxHeight:"250px"
+    maxHeight:"225px"
 }
 const SubmitButton = {
     width:"45px",
