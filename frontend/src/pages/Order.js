@@ -191,6 +191,43 @@ return (
                     />
                     </label>
                     <br />
+                    <label style={PayOrderSubHeadingH}>Address:
+                    <input 
+                        type="text" 
+                        name="address" 
+                        value={inputs.address || updatedOrder.address || ""} 
+                        style={PayOrderSubHeadingInput2}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={PayOrderSubHeadingH}>City:
+                    <input 
+                        type="text" 
+                        name="city" 
+                        value={inputs.city || updatedOrder.city || ""} 
+                        style={PayOrderSubHeadingInput2}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <br />
+                    <label style={PayOrderSubHeadingH}>State:
+                    <input 
+                        type="text" 
+                        name="state" 
+                        value={inputs.state || updatedOrder.state || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label style={PayOrderSubHeadingH}>Country:
+                    <input 
+                        type="text" 
+                        name="country" 
+                        value={inputs.country || updatedOrder.country || ""} 
+                        style={PayOrderSubHeadingInput1}
+                        onChange={handleChange}
+                    />
+                    </label>
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
