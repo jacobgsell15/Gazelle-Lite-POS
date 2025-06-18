@@ -405,6 +405,7 @@ function EditOrder(props){
     const [reload, setReload] = useState(false);
     const [updateHover,setUpdateHover] = useState(false);
     const [deleteHover,setDeleteHover] = useState(false);
+    const [payHover,setPayHover] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -604,6 +605,20 @@ const EditOrderRowHouseDiv = {
     overflowY:"scroll",
     maxHeight:"225px"
 }
+const PayButton = {
+    width:"45px",
+    height:"20px",
+    backgroundColor: payHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    margin:"10px",
+    fontSize:"12px"
+}
 const SubmitButton = {
     width:"45px",
     height:"20px",
@@ -647,6 +662,8 @@ const DeleteButton = {
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
                 <div style={EditOrderHeadingH}><b>{props.location.name}</b></div>
+                {(props.blanks) && <button style={PayButton} onClick={(event) => startPay(event)} onMouseEnter={() => setPayHover(true)} onMouseLeave={() => setPayHover(false)}>Pay</button>}
+
             </div>
             <form onSubmit={(event) => handleUpdate(event,props.workorder)}>
                 <div style={EditOrderSubHeadingDiv}>
@@ -668,7 +685,6 @@ const DeleteButton = {
                         onChange={handleChange}
                     />
                     </label>
-                    <button style={DeleteButton} onClick={(event) => startPay(event)} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Pay</button>
                 </div>
                 <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
@@ -874,6 +890,7 @@ function Order(){
         if(toggleComp){
              setCurrOrd([]);
              setToggleComp(false);
+             setBlanks(false);
         }
         else{
             setToggleComp(true)};
