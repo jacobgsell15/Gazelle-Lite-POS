@@ -18,7 +18,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
 class CompletedOrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Order
+        model = CompletedOrder
         fields = ('id','location','table','guests','total','finalized_list','payment_details','completed')
 
 class ItemSerializer(serializers.ModelSerializer):

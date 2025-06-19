@@ -24,7 +24,7 @@ class OrderView(viewsets.ModelViewSet):
 
 class CompletedOrderView(viewsets.ModelViewSet):
     serializer_class = CompletedOrderSerializer
-    queryset = Order.objects.all()
+    queryset = CompletedOrder.objects.all()
 
 class ItemView(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
