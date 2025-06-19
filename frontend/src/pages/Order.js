@@ -24,7 +24,12 @@ function PaymentField(props){
             axios
                 .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => console.log(res))
-        }        
+        const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":props.payorder.finalized_list,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
+            axios
+                .post(`/api/completedorders/`,corder)
+                .then((res) => console.log(res))
+        }
+              
     }
 
 const PayOrderDiv = {
@@ -250,6 +255,7 @@ return (
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
+                    <button style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} onClick={(event) => handleUpdate(event)}/>
                 </div>
             </form>
         </div>
