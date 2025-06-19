@@ -26,5 +26,6 @@ class AddItemAdmin(admin.ModelAdmin):
 
 admin.site.register(Location,LocationAdmin)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(CompletedOrder,CompletedOrderAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(AddItem,AddItemAdmin)
