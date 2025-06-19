@@ -7,7 +7,7 @@ function PaymentField(props){
     const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
     const [updateHover,setUpdateHover] = useState(false);
     const [cashHover,setCashHover] = useState(false);
-    const [lineItems,setLineItems] = useState({})
+    const [lineItems,setLineItems] = useState({items:[]})
     const [addItems,setAddItems] = useState({})
     const [paid,setPaid] = useState(false)
 
@@ -26,11 +26,15 @@ function PaymentField(props){
     const handleUpdate = (event) => {
         if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
             axios
-                .get(`/api/additems/`)
+                .get("/api/additems/")
                 .then((res) => setAddItems(res.data))
+                 .catch ((error) => {
+                    console.log("Error fetching data:", error)
+                })
             addItems.map((item) => {
-                if(item.order === updatedOrder.id) setLineItems(lItems => [...lItems,item])
+                if(item.order === updatedOrder.id) setLineItems(lItems => ({...lItems, items:[...lItems.items,item]}))
             })
+            console.log(lineItems)
             const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":lineItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             console.log(corder)
             alert("check")
