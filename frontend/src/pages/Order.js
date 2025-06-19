@@ -32,10 +32,10 @@ function PaymentField(props){
                     alert(error)
                     console.log("Error fetching data:", error)
                 })
-            addItems.map((item) => {
+            /*addItems.map((item) => {
                 if(item.order === updatedOrder.id) setLineItems(lItems => ({...lItems.items,item}))
             })
-            console.log(lineItems)
+            console.log(lineItems)*/
             const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":props.payorder.finalized_list,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             console.log(corder)
             alert("check")
