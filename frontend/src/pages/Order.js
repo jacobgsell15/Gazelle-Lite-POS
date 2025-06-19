@@ -121,7 +121,7 @@ const CashButton = {
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
-    marginLeft:"5px";
+    marginLeft:"5px",
     fontSize:"12px"
 }
 const SubmitButton = {
