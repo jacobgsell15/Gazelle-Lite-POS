@@ -22,7 +22,7 @@ function PaymentField(props){
     }
     
     const handleUpdate = (event) => {
-        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !setPaid){
+        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
             axios
                 .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => console.log(res))
