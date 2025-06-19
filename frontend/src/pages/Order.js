@@ -6,6 +6,7 @@ function PaymentField(props){
     const [inputs,setInputs] = useState({});
     const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
     const [updateHover,setUpdateHover] = useState(false);
+    const [cashHover,setCashHover] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -108,6 +109,19 @@ const PayOrderBottomRowDiv = {
     width:"95%",
     height:"50px", 
     padding:"5px 0px 0px 5%"  
+}
+const CashButton = {
+    width:"45px",
+    height:"20px",
+    backgroundColor: cashHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
 }
 const SubmitButton = {
     width:"45px",
