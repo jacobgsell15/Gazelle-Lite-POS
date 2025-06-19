@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Order
+from .models import CompletedOrder
 from .models import Item
 from .models import AddItem
 from .models import Location
@@ -14,6 +15,11 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id','location','table','guests','total','finalized_list','completed')
+
+class CompletedOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ('id','location','table','guests','total','finalized_list','payment_details','completed')
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:

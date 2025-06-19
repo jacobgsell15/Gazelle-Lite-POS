@@ -27,6 +27,19 @@ class Order(models.Model):
     def _str_(self):
         return self.id
 
+class CompletedOrder(models.Model):
+    id = models.AutoField(primary_key=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    table = models.IntegerField()
+    guests = models.IntegerField()
+    total = models.DecimalField(max_digits=5,decimal_places=2)
+    finalized_list = models.JSONField()
+    payment_details = models.JSONField()
+    completed = models. BooleanField()
+
+    def _str_(self):
+        return self.id
+
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=120,default="")

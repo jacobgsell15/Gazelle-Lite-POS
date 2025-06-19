@@ -2,10 +2,12 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from .serializers import OrderSerializer
+from .serializers import CompletedOrderSerializer
 from .serializers import ItemSerializer
 from .serializers import AddItemSerializer
 from .serializers import LocationSerializer
 from .models import Order
+from .models import CompletedOrder
 from .models import Item
 from .models import AddItem
 from .models import Location
@@ -18,6 +20,10 @@ class LocationView(viewsets.ModelViewSet):
 
 class OrderView(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
+    queryset = Order.objects.all()
+
+class CompletedOrderView(viewsets.ModelViewSet):
+    serializer_class = CompletedOrderSerializer
     queryset = Order.objects.all()
 
 class ItemView(viewsets.ModelViewSet):
