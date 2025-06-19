@@ -7,6 +7,8 @@ function PaymentField(props){
     const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
     const [updateHover,setUpdateHover] = useState(false);
     const [cashHover,setCashHover] = useState(false);
+    const [lineItems,setLineItems] = useState({})
+    const [addItems,setAddItems] = useState({})
     const [paid,setPaid] = useState(false)
 
     const handleChange = (event) => {
@@ -26,7 +28,13 @@ function PaymentField(props){
             axios
                 .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => console.log(res))
-        const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":props.payorder.finalized_list,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
+            axios
+                .get(`/api/additems/`)
+                .then((res) => setAddItems(res.data))
+            addItems.map((item) => {
+                if(item.order === updatedOrder.id) setLineItems(lItems => [...lItems,item])
+            })
+            const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":lineItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             axios
                 .post(`/api/completedorders/`,corder)
                 .then((res) => console.log(res))
