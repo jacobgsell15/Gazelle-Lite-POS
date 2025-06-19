@@ -26,9 +26,6 @@ function PaymentField(props){
     const handleUpdate = (event) => {
         if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
             axios
-                .delete(`/api/orders/${props.payorder.id}/`)
-                .then((res) => console.log(res))
-            axios
                 .get(`/api/additems/`)
                 .then((res) => setAddItems(res.data))
             addItems.map((item) => {
@@ -39,6 +36,9 @@ function PaymentField(props){
             alert("check")
             axios
                 .post(`/api/completedorders/`,corder)
+                .then((res) => console.log(res))
+            axios
+                .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => console.log(res))
         }
         setPaid(true)    
