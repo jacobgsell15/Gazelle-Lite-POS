@@ -7,6 +7,7 @@ function PaymentField(props){
     const [updatedOrder,setUpdatedOrder] = useState(props.payorder);
     const [updateHover,setUpdateHover] = useState(false);
     const [cashHover,setCashHover] = useState(false);
+    const [paid,setPaid] = useState(false)
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -21,7 +22,7 @@ function PaymentField(props){
     }
     
     const handleUpdate = (event) => {
-        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null){
+        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !setPaid){
             axios
                 .delete(`/api/orders/${props.payorder.id}/`)
                 .then((res) => console.log(res))
@@ -30,7 +31,7 @@ function PaymentField(props){
                 .post(`/api/completedorders/`,corder)
                 .then((res) => console.log(res))
         }
-              
+        setPaid(true)    
     }
 
 const PayOrderDiv = {
