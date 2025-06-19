@@ -121,6 +121,7 @@ const CashButton = {
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
+    marginLeft:"5px";
     fontSize:"12px"
 }
 const SubmitButton = {
@@ -269,7 +270,7 @@ return (
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
-                    <button style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} onClick={(event) => handleUpdate(event)}/>
+                    <button style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} onClick={(event) => handleUpdate(event)}>Cash</button>
                 </div>
             </form>
         </div>
