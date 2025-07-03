@@ -36,7 +36,7 @@ function PaymentField(props){
                 if(item.order === updatedOrder.id) setLineItems(lItems => ({...lItems.items,item}))
             })
             console.log(lineItems)*/
-            const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":props.payorder.finalized_list,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
+            const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":addItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             console.log(corder)
             alert("check")
             axios
@@ -785,6 +785,7 @@ const DeleteButton = {
                     <>
                     {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate} onClick2={handleLIDelete}/> }
                     </>
+                    {(item.order === props.workorder.id) setLineAdd()}
                 ))}
                 </div>
                 {!(props.blanks) && (
