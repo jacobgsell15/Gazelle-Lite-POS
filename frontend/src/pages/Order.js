@@ -785,7 +785,6 @@ const DeleteButton = {
                     <>
                     {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate} onClick2={handleLIDelete}/> }
                     </>
-                    {(item.order === props.workorder.id) setLineAdd()}
                 ))}
                 </div>
                 {!(props.blanks) && (
