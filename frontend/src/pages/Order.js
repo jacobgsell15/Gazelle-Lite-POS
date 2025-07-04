@@ -26,7 +26,7 @@ function PaymentField(props){
     const handleUpdate = (event) => {
         if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
             axios
-                .get("/api/additems/")
+                .get(`/api/additems/?order=${props.payorder.id}`)
                 .then((res) => setAddItems(res.data))
                  .catch ((error) => {
                     alert(error)
@@ -36,6 +36,7 @@ function PaymentField(props){
                 if(item.order === updatedOrder.id) setLineItems(lItems => ({...lItems.items,item}))
             })
             console.log(lineItems)*/
+            console.log(addItems)
             const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":addItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             console.log(corder)
             alert("check")

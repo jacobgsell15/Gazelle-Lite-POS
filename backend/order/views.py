@@ -34,6 +34,12 @@ class AddItemView(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
     serializer_class = AddItemSerializer
     queryset = AddItem.objects.all()
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        order_id = self.request.query_params.get("order", None)
+        if order_id is not None:
+            queryset = queryset.filter(order__id=order_id)
+        return queryset
 
 
 # Create your views here.from django.shortcuts import render
