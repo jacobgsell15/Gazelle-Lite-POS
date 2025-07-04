@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 from .serializers import OrderSerializer
 from .serializers import CompletedOrderSerializer
 from .serializers import ItemSerializer
@@ -37,7 +38,7 @@ class AddItemView(viewsets.ModelViewSet):
         queryset = AddItem.objects.all()
         order_id = self.request.query_params.get("order", None)
         if order_id is not None:
-            queryset = queryset.filter(order=order_id)
+            queryset = queryset.filter(order__id=order_id)
         return queryset
 
 
