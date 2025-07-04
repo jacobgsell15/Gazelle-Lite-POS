@@ -37,9 +37,10 @@ function PaymentField(props){
                         console.log("Error fetching data:", error)
                     })
                 console.log(addItems)
-            };        
+            };   
+        }     
         fetchData();
-    }, []});
+    }, []);
 
 
 
