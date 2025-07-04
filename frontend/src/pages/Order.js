@@ -292,7 +292,6 @@ return (
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
-                    <input type="submit" style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} value="Cash" />
                 </div>
             </form>
         </div>
