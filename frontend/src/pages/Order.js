@@ -22,20 +22,29 @@ function PaymentField(props){
         //event.preventDefaults();
         console.log('event');
     }
+
+  useEffect(() => {
+        const fetchData = async () => {            
+            if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
+                axios
+                    .get(`/api/additems/?order=${props.payorder.id}`)
+                    .then((res) => {
+                        setAddItems(res.data)
+                        console.log(res.data)
+                    })
+                    .catch ((error) => {
+                        alert(error)
+                        console.log("Error fetching data:", error)
+                    })
+                console.log(addItems)
+            };        
+        fetchData();
+    }, []});
+
+
+
     
     const handleUpdate = (event) => {
-        if (updatedOrder.id === props.payorder.id && updatedOrder.id != null && !paid){
-            axios
-                .get(`/api/additems/?order=${props.payorder.id}`)
-                .then((res) => {
-                    setAddItems(res.data)
-                    console.log(res.data)
-                })
-                .catch ((error) => {
-                    alert(error)
-                    console.log("Error fetching data:", error)
-                })
-            console.log(addItems)
             const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":addItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
             console.log(corder)
             alert("check")
