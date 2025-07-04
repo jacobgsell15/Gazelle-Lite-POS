@@ -41,9 +41,6 @@ function PaymentField(props){
         }     
         fetchData();
     }, []);
-
-
-
     
     const handleUpdate = (event) => {
         const corder = {"id":"","location":props.payorder.location,"table":props.payorder.table,"guests":props.payorder.guests,"total":props.payorder.total,"finalized_list":addItems,"payment_details":{"method":"Cash","amount":props.payorder.total},"completed":false}
@@ -295,7 +292,7 @@ return (
                 </div>
                 <div style={PayOrderBottomRowDiv}>
                     <input type="submit" style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} />
-                    <button style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} onClick={(event) => handleUpdate(event)}>Cash</button>
+                    <input type="submit" style={CashButton} onMouseEnter={() => setCashHover(true)} onMouseLeave={() => setCashHover(false)} value="Cash" />
                 </div>
             </form>
         </div>
