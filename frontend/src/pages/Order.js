@@ -8,7 +8,7 @@ function PaymentField(props){
     const [updateHover,setUpdateHover] = useState(false);
     const [cashHover,setCashHover] = useState(false);
     const [lineItems,setLineItems] = useState({})
-    const [addItems,setAddItems] = useState({})
+    const [addItems,setAddItems] = useState([])
     const [paid,setPaid] = useState(false)
 
     const handleChange = (event) => {
